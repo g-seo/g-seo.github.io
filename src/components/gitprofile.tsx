@@ -13,7 +13,6 @@ import { getInitialTheme, getSanitizedConfig, setupHotjar } from '../utils';
 import { SanitizedConfig } from '../interfaces/sanitized-config';
 import ErrorPage from './error-page';
 import { DEFAULT_THEMES } from '../constants/default-themes';
-import ThemeChanger from './theme-changer';
 import { BG_COLOR } from '../constants';
 import AvatarCard from './avatar-card';
 import { Profile } from '../interfaces/profile';
@@ -178,7 +177,7 @@ const GitProfile = ({ config }: { config: Config }) => {
   };
 
   return (
-    <div className="fade-in h-screen">
+    <div style={{ minHeight: '100vh', background: '#f5ecd7' }}>
       {error ? (
         <ErrorPage
           status={error.status}
@@ -187,33 +186,77 @@ const GitProfile = ({ config }: { config: Config }) => {
         />
       ) : (
         <>
-          <div className="p-4 lg:p-10 min-h-full bg-yellow-900">
+          <div style={{ padding: '40px 0', minHeight: '100vh', background: '#f5ecd7' }}>
             {/* 4개 요소를 한 줄에 옆으로 배치 */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 rounded-box mb-6">
-              <AvatarCard
-                profile={profile}
-                loading={loading}
-                avatarRing={sanitizedConfig.themeConfig?.displayAvatarRing}
-                resumeFileUrl={sanitizedConfig.resume?.fileUrl}
-              />
-              <DetailsCard
-                profile={profile}
-                loading={loading}
-                github={sanitizedConfig.github}
-                social={sanitizedConfig.social}
-              />
-              <SkillCard
-                loading={loading}
-                skills={sanitizedConfig.skills}
-              />
-              <EducationCard
-                loading={loading}
-                educations={sanitizedConfig.educations}
-              />
+            <div style={{
+              display: 'flex',
+              gap: '24px',
+              marginBottom: '24px',
+              borderRadius: '16px',
+              justifyContent: 'center'
+            }}>
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '16px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                flex: 1,
+                padding: '24px'
+              }}>
+                <AvatarCard
+                  profile={profile}
+                  loading={loading}
+                  avatarRing={sanitizedConfig.themeConfig?.displayAvatarRing}
+                  resumeFileUrl={sanitizedConfig.resume?.fileUrl}
+                />
+              </div>
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '16px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                flex: 1,
+                padding: '24px'
+              }}>
+                <DetailsCard
+                  profile={profile}
+                  loading={loading}
+                  github={sanitizedConfig.github}
+                  social={sanitizedConfig.social}
+                />
+              </div>
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '16px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                flex: 1,
+                padding: '24px'
+              }}>
+                <SkillCard
+                  loading={loading}
+                  skills={sanitizedConfig.skills}
+                />
+              </div>
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '16px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                flex: 1,
+                padding: '24px'
+              }}>
+                <EducationCard
+                  loading={loading}
+                  educations={sanitizedConfig.educations}
+                />
+              </div>
             </div>
             {/* GithubProjectCard를 4개 요소 밑에 전체 너비로 배치 */}
             {sanitizedConfig.projects.github.display && (
-              <div className="mb-6">
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '16px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                marginBottom: '24px',
+                padding: '24px'
+              }}>
                 <GithubProjectCard
                   header={sanitizedConfig.projects.github.header}
                   limit={sanitizedConfig.projects.github.automatic.limit}
@@ -226,9 +269,19 @@ const GitProfile = ({ config }: { config: Config }) => {
           </div>
           {sanitizedConfig.footer && (
             <footer
-              className={`p-4 footer ${BG_COLOR} text-base-content footer-center`}
+              style={{
+                padding: '16px',
+                background: '#f5ecd7',
+                textAlign: 'center'
+              }}
             >
-              <div className="card card-sm bg-base-100 shadow-sm">
+              <div style={{
+                background: '#fff8e1',
+                borderRadius: '8px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                display: 'inline-block',
+                padding: '12px 24px'
+              }}>
                 <Footer content={sanitizedConfig.footer} loading={loading} />
               </div>
             </footer>
