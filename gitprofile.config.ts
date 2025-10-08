@@ -2,14 +2,14 @@
 
 const CONFIG = {
   github: {
-    username: 'arifszn', // Your GitHub org/user name. (This is the only required config)
+    username: 'g-seo', // Your GitHub org/user name. (This is the only required config)
   },
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
    * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
    * for example your repository is at https://github.com/arifszn/portfolio, then set base to '/portfolio/'.
    */
-  base: '/',
+  base: '/', // Base URL for GitHub Pages deployment. (Replace with your repository name)
   projects: {
     github: {
       display: true, // Display GitHub projects?
@@ -54,7 +54,6 @@ const CONFIG = {
   seo: { title: 'Portfolio of Ariful Alam', description: '', imageURL: '' },
   social: {
     linkedin: 'ariful-alam',
-    x: 'arif_szn',
     mastodon: 'arifszn@mastodon.social',
     researchGate: '',
     facebook: '',
